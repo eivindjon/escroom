@@ -15,15 +15,11 @@ const MainNavbar = () => {
           Escaperoom Fløysbonn skole
         </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/Home">Topplista</Nav.Link>
-          <NavDropdown title="Fag" id="nav-dropdown">
-            <NavDropdown.Item eventKey="4.1">Matematikk</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.2">Samfunnsfag</NavDropdown.Item>
-            <NavDropdown.Item eventKey="4.3">
-              Naturfag
-            </NavDropdown.Item>
-          </NavDropdown>
+          <Nav.Link href="/Home">Hjem</Nav.Link>
+          <Nav.Link href="/Home">Escape rooms</Nav.Link>
+          <Nav.Link href="/Home">Min side</Nav.Link>
         </Nav>
+        <Nav.Link className="mr-auto" href="/Signin">Logg inn</Nav.Link>
       </Container>
     </Navbar>
   );

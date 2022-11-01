@@ -1,13 +1,13 @@
 import "../App.css";
 import MainNavbar from "../components/MainNavbar";
 
-function Home() {
+function Signin() {
   return (
     <div>
       <MainNavbar />
-      <h2>Homepage</h2>
+      <h2>Allo!</h2>
     </div>
   );
 }
-//Hey
-export default Home;
+
+export default Signin;
