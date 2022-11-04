@@ -1,5 +1,4 @@
 import "../App.css";
-import MainNavbar from "../components/MainNavbar";
 
 function Home() {
   return (

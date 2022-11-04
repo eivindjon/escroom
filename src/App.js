@@ -1,10 +1,10 @@
 import "./App.css";
-import {Route, Routes, Router} from 'react-router-dom';
-import {AuthContextProvider} from './context/AuthContext';
-import MainNavbar from './components/MainNavbar'
+import { Route, Routes, Router } from "react-router-dom";
+import { AuthContextProvider } from "./context/AuthContext";
+import MainNavbar from "./components/MainNavbar";
 import Home from "./pages/Home";
-import Signin from "./pages/Signin"
-
+import Signin from "./pages/Signin";
+import MinSide from "./pages/MinSide";
 
 function App() {
   return (
@@ -12,8 +12,9 @@ function App() {
       <AuthContextProvider>
         <MainNavbar />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/signin" element={<Signin/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/minside" element={<MinSide />} />
         </Routes>
       </AuthContextProvider>
     </div>
