@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 
-export default function Room({room}) {
+export default function Room({number, nameOfRoom}) {
+  
+
   return (
     <div>
-      {room}
+      <h1>NR {number}, Navn: {nameOfRoom}</h1>
+      
     </div>
   );
 }

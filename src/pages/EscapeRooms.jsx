@@ -19,19 +19,28 @@ export default function EscapeRooms() {
       });
       setTrails(trailsArray)
       console.log("resultat av query:", trailsArray)
+      
     })
     return () => unsubscribe()
   },[])
 
+  function testingMap(allTheRooms) {
+    allTheRooms.map((room, index) => {
+      console.log("index", index, "room", room.nameOfRoom)
+    })
+  }
   
 
   return (
     <Container>
       <Col>
         <Row>
-          {trails.map((room, index) =>{
-            <Room key={index} room={room} />
-          })}
+          <Room number={"1"} nameOfRoom="SÅNN VIRKER DET" />
+          {
+          trails.map((room, index) => {
+            <Room key={index} nameOfRoom={room.nameOfRoom}/>
+          })
+          }
         </Row>
       </Col>
     </Container>
