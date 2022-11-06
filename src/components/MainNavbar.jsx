@@ -26,9 +26,9 @@ const MainNavbar = () => {
           Escaperoom Fløysbonn skole
         </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/Home">Hjem</Nav.Link>
-          <Nav.Link href="/Home">Escape rooms</Nav.Link>
-          <Nav.Link href="/Home">Min side</Nav.Link>
+          <Nav.Link href="/">Hjem</Nav.Link>
+          <Nav.Link href="/escaperooms">Escape rooms</Nav.Link>
+          <Nav.Link href="/minside">Min side</Nav.Link>
         </Nav>
         <Nav>
           {/* if user is logged in show "Logg ut", else show Logg inn */}

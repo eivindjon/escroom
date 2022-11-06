@@ -14,7 +14,6 @@ function Signin() {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      setUserLoggedIn = true;
     } catch (error) {
       console.log(error);
     }
@@ -24,7 +23,7 @@ function Signin() {
     if (user != null) {
       navigate("/minside");
     }
-  });
+  },[]);
 
   return (
     <div>
