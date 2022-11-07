@@ -6,7 +6,7 @@ export default function Room({number, nameOfRoom}) {
 
   return (
     <div>
-      <h1>NR {number}, Navn: {nameOfRoom}</h1>
+      <h1> Navn: {nameOfRoom}</h1>
       
     </div>
   );
