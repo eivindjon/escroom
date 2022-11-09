@@ -29,6 +29,7 @@ const MainNavbar = () => {
           <Nav.Link href="/">Hjem</Nav.Link>
           <Nav.Link href="/escaperooms">Escape rooms</Nav.Link>
           <Nav.Link href="/minside">Min side</Nav.Link>
+          <Nav.Link href="/lagRom">Lag escaperoom</Nav.Link>
         </Nav>
         <Nav>
           {/* if user is logged in show "Logg ut", else show Logg inn */}
