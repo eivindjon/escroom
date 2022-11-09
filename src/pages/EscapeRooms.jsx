@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import { db } from "../firebase-config";
 import { query, collection, onSnapshot } from "firebase/firestore";
-import Room from "../components/Room";
+import RoomListElement from "../components/RoomListElement";
+import { Link } from "react-router-dom";
 
 export default function EscapeRooms() {
   const [trails, setTrails] = useState([
@@ -38,7 +39,7 @@ export default function EscapeRooms() {
           <div>
             {trails.map((room, index) => {
               return (
-                <Room
+                <RoomListElement
                   key={room.id}
                   nameOfRoom={room.nameOfRoom}
                   urlOfRoom={room.id}

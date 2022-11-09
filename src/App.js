@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import MinSide from "./pages/MinSide";
 import EscapeRooms from "./pages/EscapeRooms";
+import ActiveRoom from "./pages/ActiveRoom.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/minside" element={<MinSide />} />
           <Route path="/escaperooms" element={<EscapeRooms />} />
+          <Route path="/escaperooms/:id" element={<ActiveRoom />} />
         </Routes>
       </AuthContextProvider>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "react-bootstrap/Image";
-
+import { Link } from "react-router-dom";
 export default function Room({ pic, nameOfRoom, urlOfRoom }) {
   const imgStyles = {
     maxHeight: "150px",
@@ -16,6 +16,7 @@ export default function Room({ pic, nameOfRoom, urlOfRoom }) {
         src={pic}
         alt="trailbide"
       />
+      <Link to={"/escaperooms/" + urlOfRoom}>Besøk rommet</Link>
     </div>
   );
 }
