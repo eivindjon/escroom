@@ -1,6 +1,33 @@
 import React from "react";
 import { Container, Row, Col, Input, Button, Form } from "react-bootstrap";
+import {useState, useEffect} from "react";
+
 export default function LagRom() {
+  const [qAmount, setQAmount] = useState([""])
+
+  // useEffect(() => {
+  //   console.log("State changed. Questions->", questions)
+  // }, [questions]);
+
+  function getQuestions() {
+    const questionfields = document.getElementsByClassName("questionInput")
+    console.log(questionfields)
+    // Get everything lined up for writing to db.
+    
+  };
+  function Question() {
+    return(
+      <div>
+        <Form.Group>
+          <Form.Label>
+            Spørsmålstekst
+          </Form.Label>
+          <Form.Control type="text" placeholder="Spørsmål.." />
+        </Form.Group>
+      </div>
+    )
+  }
+
   return (
     <div>
       <Container>
@@ -19,7 +46,13 @@ export default function LagRom() {
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Check me out" />
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Form.Group>
+                
+              </Form.Group>
+              <Button onClick={}>
+              
+
+              <Button onClick={() => getQuestions()} variant="primary" type="submit">
                 Submit
               </Button>
             </Form>
