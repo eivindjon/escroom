@@ -1,25 +1,32 @@
 import React from "react";
 import { Container, Row, Col, Input, Button, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase-config";
+import { UserAuth } from "../context/AuthContext";
+
+
 
 export default function LagRom() {
+  const user = UserAuth();
+  const userID = user.user.uid
+  console.log(userID)
   const [qAmount, setQAmount] = useState(0);
   //store values of input-fields and apply as needed..
   const [allInputValues, setAllInputValues] = useState([]);
 
-
-
-  // useEffect(() => {
-    
-  //   console.log("Sensed state chenge", testInput)
-  // }, [qAmount]);
+  // Add a new document with a generated id.
+  const trailsCollectionRef = collection(db, "trails")
+  const addTrail = async () => {
+    await addDoc(trailsCollectionRef,)
+  }
 
   function updateAndSet() {
     const allInputs = document.getElementsByTagName("input");
     console.log("allInputs over here:", allInputs)
     let testInput = []
-    if (allInputs.length > 10) {
-      for (let i = 6; i < allInputs.length; i+= 2) {
+    if (allInputs.length > 5) {
+      for (let i = 4; i < allInputs.length; i+= 2) {
         let qNs = []
         if (i+1 !== allInputs.length) {
           qNs = [allInputs[i].value, allInputs[i+1].value]
@@ -42,10 +49,10 @@ export default function LagRom() {
 
     }
 
-    for (let i = 2; i < questionfields.length; i++) {
-      let qKey = "q"+ String(i);
+    for (let i = 0; i < questionfields.length; i++) {
+      let qKey = "q"+ String(i+1);
       let qVal = questionfields[i].value;
-      let sKey = "s" + String(i);
+      let sKey = "s" + String(i+1);
       let sVal = solutions[i].value
       dbdoc[qKey] = qVal
       dbdoc[sKey] = sVal 
@@ -56,7 +63,7 @@ export default function LagRom() {
     console.log(dbdoc);
     // Get everything lined up for writing to db.
   }
-  function Question({number, value}) {
+  function Question({number, value=""}) {
     console.log("Creating new question", number);
     console.log("Values was", value);
     return (
@@ -84,7 +91,7 @@ export default function LagRom() {
                 <Form.Control type="text" placeholder="Tags" />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="q0">
+              <Form.Group className="mb-3" controlId="question">
                 <Form.Label>Spørsmål nr{1}</Form.Label>
                 <Form.Control type="text" placeholder="Spørsmål.." className="q"/>
                 <Form.Control type="text" placeholder="Løsning" className="s"/>
@@ -95,6 +102,10 @@ export default function LagRom() {
               <Button onClick={() => updateAndSet()}>
                 Legg til spørsmål
               </Button>
+              <Button onClick={() => setQAmount(qAmount -1)}>
+                Fjern spørsmål
+              </Button>
+
 
               <Button
                 onClick={() => getQuestions()}
