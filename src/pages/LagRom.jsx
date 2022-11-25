@@ -1,31 +1,29 @@
 import React from "react";
 import { Container, Row, Col, Input, Button, Form } from "react-bootstrap";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 export default function LagRom() {
-  const [qAmount, setQAmount] = useState([""])
+  const [qAmount, setQAmount] = useState(2);
 
   // useEffect(() => {
   //   console.log("State changed. Questions->", questions)
   // }, [questions]);
 
   function getQuestions() {
-    const questionfields = document.getElementsByClassName("questionInput")
-    console.log(questionfields)
+    const questionfields = document.getElementsByClassName("questionInput");
+    console.log(questionfields);
     // Get everything lined up for writing to db.
-    
-  };
+  }
   function Question() {
-    return(
+    console.log("Creating new question");
+    return (
       <div>
         <Form.Group>
-          <Form.Label>
-            Spørsmålstekst
-          </Form.Label>
+          <Form.Label>Spørsmålstekst</Form.Label>
           <Form.Control type="text" placeholder="Spørsmål.." />
         </Form.Group>
       </div>
-    )
+    );
   }
 
   return (
@@ -39,20 +37,22 @@ export default function LagRom() {
                 <Form.Control type="text" placeholder="Rommets navn" />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3" controlId="q0">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="text" placeholder="Spørsmål.." />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-              <Form.Group>
-                
-              </Form.Group>
-              <Button onClick={}>
-              
+              {[...Array(qAmount)].map((_, i) => (
+                <Question key={i} />
+              ))}
+              <Button onClick={() => setQAmount(qAmount + 1)}>
+                Legg til spørsmål
+              </Button>
 
-              <Button onClick={() => getQuestions()} variant="primary" type="submit">
+              <Button
+                onClick={() => getQuestions()}
+                variant="primary"
+                // type="submit"
+              >
                 Submit
               </Button>
             </Form>
