@@ -4,16 +4,18 @@ import { useState, useEffect } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { UserAuth } from "../context/AuthContext";
+import TagInput from "../components/TagInput";
 
 
 
 export default function LagRom() {
   const user = UserAuth();
-  const userID = user.user.uid
+  const userID = user?.user?.uid;
   console.log(userID)
   const [qAmount, setQAmount] = useState(0);
   //store values of input-fields and apply as needed..
   const [allInputValues, setAllInputValues] = useState([]);
+  const [tags, setTags] = useState([]);
 
   // Add a new document with a generated id.
   const trailsCollectionRef = collection(db, "trails")
@@ -87,8 +89,7 @@ export default function LagRom() {
               <Form.Group className="mb-3" controlId="nameOfRoom">
                 <Form.Label>Hva skal rommet hete?</Form.Label>
                 <Form.Control type="text" placeholder="Rommets navn" />
-                <Form.Label>Tags</Form.Label>
-                <Form.Control type="text" placeholder="Tags" />
+                <TagInput onTagsChange={setTags} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="question">
