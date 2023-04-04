@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 export default function EscapeRooms() {
   const [trails, setTrails] = useState([
-    { nameOfRoom: "Albebra 6.trinn", id: 1213 },
-    { nameOfRoom: "Mongolske byer", id: 111 },
+    // { nameOfRoom: "Albebra 6.trinn", id: 1213 },
+    // { nameOfRoom: "Mongolske byer", id: 111 },
   ]);
   function testingMap(allTheRooms) {
     allTheRooms.map((room, id) => {

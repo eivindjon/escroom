@@ -6,12 +6,10 @@ import { db } from "../firebase-config";
 import { UserAuth } from "../context/AuthContext";
 import TagInput from "../components/TagInput";
 
-
-
 export default function LagRom() {
   const user = UserAuth();
   const userID = user?.user?.uid;
-  console.log(userID)
+  console.log(userID);
   const [qAmount, setQAmount] = useState(0);
   //store values of input-fields and apply as needed..
   const [allInputValues, setAllInputValues] = useState([]);
@@ -57,7 +55,10 @@ export default function LagRom() {
     const questionfields = document.getElementsByClassName("q");
     const solutions = document.getElementsByClassName("s");
 
-    let dbdoc = {};
+    let dbdoc = {
+      nameOfRoom: nameOfRoom,
+      tags: tags,
+    };
 
     for (let i = 0; i < questionfields.length; i++) {
       let qKey = "q" + String(i + 1);
@@ -107,7 +108,11 @@ export default function LagRom() {
             <Form>
               <Form.Group className="mb-3" controlId="nameOfRoom">
                 <Form.Label>Hva skal rommet hete?</Form.Label>
-                <Form.Control type="text" placeholder="Rommets navn" />
+                <Form.Control
+                  type="text"
+                  placeholder="Rommets navn"
+                  onChange={handleChange}
+                />
                 <TagInput onTagsChange={setTags} />
               </Form.Group>
 
@@ -129,7 +134,7 @@ export default function LagRom() {
               </Button>
 
               <Button
-                onClick={addTrail()}
+                onClick={addTrail}
                 variant="primary"
                 // type="submit"
               >
